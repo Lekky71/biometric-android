@@ -4,38 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
     android:layout_gravity="center"
-    android:gravity="center">
+    android:gravity="center"
+    tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_margin="15dp"
         android:gravity="center"
+        android:orientation="vertical"
         android:padding="8dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Username"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp"
+            android:text="Username" />
 
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/usernameEdiText"
+        <EditText
+            android:id="@+id/usernameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"/>
+            android:layout_marginBottom="15dp" />
 
-        <android.support.v7.widget.AppCompatButton
+        <Button
             android:id="@+id/scanButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:enabled="false"
             android:text="Biometric Scan"
-            android:textColor="@color/colorPrimary"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium.Inverse"
-            android:enabled="false"/>
+            android:textColor="@color/colorPrimary" />
 
     </LinearLayout>
 

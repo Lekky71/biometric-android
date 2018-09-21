@@ -1,34 +1,41 @@
 package com.hashcode.bioapp
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatEditText
 import com.hashcode.biometric.BiometricCallback
 import com.hashcode.biometric.BiometricManager
-import kotlinx.android.synthetic.main.activity_login.*
 
 
 class LoginActivity : AppCompatActivity(), BiometricCallback {
 
+    lateinit var scanButton:Button
+    lateinit var usernameEditText: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        scanButton = findViewById(R.id.scanButton)
+        usernameEditText = findViewById(R.id.usernameEditText)
         scanButton.setOnClickListener(scanButtonClickListener)
-        usernameEdiText.addTextChangedListener(textWatcher)
+        usernameEditText.addTextChangedListener(textWatcher)
     }
 
     private val scanButtonClickListener = View.OnClickListener { _ ->
-        val biometricManager = BiometricManager.BiometricBuilder(applicationContext)
+        val biometricManager = BiometricManager.BiometricBuilder(this@LoginActivity)
                 .setTitle("App authentication")
                 .setSubtitle("sign in with your fingerprint")
                 .setDescription("Place your finger on your fingerprint scanner")
                 .setNegativeButtonText("Cancel")
                 .build()
-                .authenticate(this)
+                .authenticate(this@LoginActivity)
     }
 
     val textWatcher = object : TextWatcher {

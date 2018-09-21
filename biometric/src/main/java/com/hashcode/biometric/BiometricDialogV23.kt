@@ -6,11 +6,11 @@ package com.hashcode.biometric
 
 import android.content.Context
 import android.content.DialogInterface
-import android.support.design.widget.BottomSheetDialog
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 
 open class BiometricDialogV23 : BottomSheetDialog, View.OnClickListener {
@@ -42,7 +42,7 @@ open class BiometricDialogV23 : BottomSheetDialog, View.OnClickListener {
     protected constructor(context: Context, cancelable: Boolean, cancelListener: DialogInterface.OnCancelListener) : super(context, cancelable, cancelListener) {}
 
     private fun setDialogView() {
-        val bottomSheetView = layoutInflater.inflate(R.layout.bottom_sheet, null)
+        val bottomSheetView = layoutInflater.inflate(R.layout.bottom_sheet, null, false)
         setContentView(bottomSheetView)
 
         btnCancel = findViewById(R.id.btn_cancel)
